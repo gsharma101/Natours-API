@@ -7,6 +7,7 @@ const tours = JSON.parse(
 */
 
 exports.getAllTours = async (req, res) => {
+  console.log(req.query);
   try {
     const tours = await Tour.find();
 
