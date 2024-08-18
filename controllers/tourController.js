@@ -24,7 +24,7 @@ exports.getAllTours = async (req, res) => {
 
     let query = Tour.find(JSON.parse(queryStr));
 
-    // 3) Sorting 
+    // 2) Sorting 
 
     if(req.query.sort){
       const sortBy = req.query.sort.split(',').join(' ');
@@ -35,7 +35,16 @@ exports.getAllTours = async (req, res) => {
       query = query.sort('-createdAt');
     }
 
-    // 2. Executed the Query
+    // 3) Field limiting 
+
+    if(req.query.fields){
+      const fields = req.query.fields.split(',').join(' ');
+      query = query.select(fields);
+    }else{
+      query = query.select('-__v');
+    }
+
+    // Execute Query
     const tours = await query;
 
      /*
