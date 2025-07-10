@@ -1,0 +1,21 @@
+# Use official Node LTS image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies (both prod & dev for dev env)
+COPY package*.json ./
+RUN npm install
+
+# Install nodemon globally (optional but common)
+RUN npm install -g nodemon
+
+# Copy all files (except those in .dockerignore)
+COPY . .
+
+# Expose app port
+EXPOSE 3000
+
+# Default command: run with nodemon for hot reload
+CMD ["nodemon", "server.js"]

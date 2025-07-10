@@ -1,2 +1,31 @@
+# Node dependencies
 /node_modules
+
+# Local environment config
 config.env
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker local files / overrides
+docker-compose.override.yml
+docker-compose.dev.yml
+volumes/
+*.volumes
+*.tar
+*.img
+
+# VSCode Docker extension metadata (if you use VS Code)
+.vscode/*.docker-compose
+
+# Build output / cache
+/dist
+/build
