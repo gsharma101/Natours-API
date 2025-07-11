@@ -7,7 +7,9 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
-    "debug": "ndb server.js"
+    "debug": "ndb server.js",
+    "build:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --minify",
+    "watch:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --watch"
   },
   "author": "gsharma010",
   "license": "ISC",
@@ -15,7 +17,10 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "core-js": "^3.44.0",
     "dotenv": "^17.1.0",
     "express": "^5.1.0",
     "express-mongo-sanitize": "^2.2.0",
@@ -28,11 +33,14 @@
     "morgan": "^1.10.0",
     "nodemailer": "^7.0.5",
     "npm": "^11.4.2",
+    "pug": "^3.0.3",
+    "regenerator-runtime": "^0.14.1",
     "sanitize-html": "^2.17.0",
     "slugify": "^1.6.6",
     "validator": "^13.15.15"
   },
   "devDependencies": {
+    "esbuild": "^0.25.6",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^10.1.5",
