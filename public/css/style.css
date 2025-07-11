@@ -1266,6 +1266,27 @@ body {
   margin-bottom: 2.5rem;
 }
 
+.form__text {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
+.form__link{
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: gray; /* or any color you prefer on hover/active */
+  text-decoration: underline; /* or keep none */
+}
+
 .form__label {
   display: block;
   font-size: 1.6rem;
@@ -1321,4 +1342,16 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
+}
+
+.nav__el--red {
+  background-color: #f84242;      /* or any red you like */
+  color: #ffffff;
+  text-transform: bold;
+  padding: .5rem;
+  border-radius: 50px;
+}
+
+.nav__el--red:hover {
+  background-color: #FF0000;
 }

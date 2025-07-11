@@ -6,7 +6,7 @@ const AppError = require('../utils/appError');
 exports.getOverview = catchAsync(async (req, res, next) => {
   // 1) Get tour data from collection
   const tours = await Tour.find();
-  console.log(tours);  // <-- add here
+  // console.log(tours);  // <-- add here
   
   // 2) Build template
   // 3) Render that template using tour data from 1)
@@ -41,9 +41,30 @@ exports.getLoginForm = (req, res) => {
   });
 };
 
+// Add this new method for signup form
+exports.getSignupForm = (req, res) => {
+  res.status(200).render('signup', {
+    title: 'Create your account'
+  });
+};
+
 exports.getAccount = (req, res) => {
   res.status(200).render('account', {
     title: 'Your account'
+  });
+};
+
+exports.getResetPasswordForm = (req, res) => {
+  res.status(200).render('resetPassword', {
+    title: 'Reset your password',
+    token: req.params.token
+  });
+};
+
+
+exports.getForgotPasswordForm = (req, res) => {
+  res.status(200).render('forgotPassword', {
+    title: 'Forgot Password'
   });
 };
 
