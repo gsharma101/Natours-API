@@ -4,17 +4,15 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app               # mount project code into container
-      - /app/node_modules    # don't overwrite node_modules in container
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - DATABASE_LOCAL=mongodb://mongo:27017/natours
     depends_on:
       - mongo
+    restart: unless-stopped
 
   mongo:
     image: mongo:6

@@ -1,23 +1,23 @@
-# Use official Node LTS image
-FROM node:18-alpine
+# Use official Node.js LTS image
+FROM node:18
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Copy only package.json and package-lock.json first
-COPY package*.json ./
+# Copy package.json and package-lock.json (if exists) separately to leverage Docker cache
+COPY package.json package-lock.json* ./
 
-# Install only production dependencies
+# Install dependencies (production by default)
 RUN npm install --production
 
-# Copy the rest of the app source code
+# Copy all project files
 COPY . .
 
-# Expose app port
+# Build JS bundle if needed
+RUN npm run build:js
+
+# Expose port your app runs on (default 3000, change if needed)
 EXPOSE 3000
 
-# Set environment variable
-ENV NODE_ENV=production
-
 # Start the app
-CMD [ "npm", "start" ]
+CMD ["npm", "run", "start"]
