@@ -1355,3 +1355,7 @@ a:hover, a:active {
 .nav__el--red:hover {
   background-color: #FF0000;
 }
+
+.form__user-photo {
+  transition: opacity 0.3s ease-in-out;
+}

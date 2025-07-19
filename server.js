@@ -8,7 +8,9 @@ const mongoose = require('mongoose');
 //   process.exit(1);
 // });
 
-const DB = process.env.DATABASE_LOCAL;
+const DB = process.env.DATABASE_LOCAL
+  .replace('<USERNAME>', process.env.DATABASE_USERNAME)
+  .replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 mongoose.connect(DB)
   .then(() => console.log('✅ DB connection successful!'))

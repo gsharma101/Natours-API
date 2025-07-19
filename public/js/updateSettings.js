@@ -1,25 +1,37 @@
-/* eslint-disable */
 import axios from 'axios';
 import { showAlert } from './alerts';
 
-// type is either 'password' or 'data'
 export const updateSettings = async (data, type) => {
   try {
+    showAlert('success', 'Uploading...'); // 👈 Show initial "Uploading..."
+
     const url =
       type === 'password'
-        ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword'
-        : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+        ? '/api/v1/users/updateMyPassword'
+        : '/api/v1/users/updateMe';
 
     const res = await axios({
       method: 'PATCH',
       url,
-      data
+      data,
     });
 
-    if (res.data.status === 'success') {
-      showAlert('success', `${type.toUpperCase()} updated successfully!`);
-    }
+    // 👇 Artificial 2s delay before final message
+    setTimeout(() => {
+      if (res.data.status === 'success') {
+        showAlert('success', `${type.toUpperCase()} updated successfully!`);
+        
+        // Reload only if data was updated (not password)
+        if (type !== 'password') {
+          window.setTimeout(() => {
+            location.reload();
+          }, 1000);
+        }
+      }
+    }, 5000); // 2 second artificial delay
   } catch (err) {
-    showAlert('error', err.response.data.message);
+    const message =
+      err.response?.data?.message || 'Something went wrong!';
+    showAlert('error', message);
   }
 };
