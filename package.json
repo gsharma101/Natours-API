@@ -8,6 +8,7 @@
     "dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
+    "test": "mocha --timeout 10000",
     "build:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --minify",
     "watch:js": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --watch"
   },
@@ -42,6 +43,7 @@
     "validator": "^13.15.15"
   },
   "devDependencies": {
+    "chai": "^5.2.1",
     "esbuild": "^0.25.6",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
@@ -51,7 +53,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-react": "^7.37.5",
+    "mocha": "^11.7.1",
     "nodemon": "^3.1.10",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.3"
   }
 }
