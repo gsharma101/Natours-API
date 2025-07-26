@@ -30,7 +30,7 @@ html {
 body {
   line-height: 1.6;
   font-weight: 300;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: #777;
   padding: 3rem;
   min-height: 100vh;
@@ -552,7 +552,7 @@ body {
 }
 
 .marker {
-  background-image: url('../img/pin.png');
+  background-image: url("../img/pin.png");
   background-size: cover;
   width: 32px;
   height: 40px;
@@ -565,7 +565,7 @@ body {
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   padding: 1.5rem !important;
   font-size: 1.4rem;
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
@@ -629,7 +629,7 @@ body {
 }
 .reviews:before,
 .reviews:after {
-  content: '';
+  content: "";
   width: 2rem;
 }
 .reviews__avatar {
@@ -1273,16 +1273,18 @@ body {
   margin-top: 0.75rem;
 }
 
-.form__link{
+.form__link {
   text-decoration: none;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   color: black;
   text-decoration: none;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: gray; /* or any color you prefer on hover/active */
   text-decoration: underline; /* or keep none */
 }
@@ -1345,17 +1347,24 @@ a:hover, a:active {
 }
 
 .nav__el--red {
-  background-color: #f84242;      /* or any red you like */
+  background-color: #f84242; /* or any red you like */
   color: #ffffff;
   text-transform: bold;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 50px;
 }
 
 .nav__el--red:hover {
-  background-color: #FF0000;
+  background-color: #ff0000;
 }
 
 .form__user-photo {
   transition: opacity 0.3s ease-in-out;
+}
+.marker {
+  background-image: url("/img/pin.png"); /* Or any icon path */
+  background-size: cover;
+  width: 32px;
+  height: 40px;
+  border-radius: 0;
 }
